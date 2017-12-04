@@ -1,0 +1,11 @@
+{
+  "predicates": [{
+    "equals": {
+      "method": "POST",
+      "path": "/calendar/appointments"
+    }
+  }],
+  "responses": [{
+    "inject" : "<%- stringify(filename, 'myBff/scheduleApptResponse.js') %>"
+  }]
+}

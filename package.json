@@ -1,0 +1,95 @@
+{
+  "name": "complexWeb_ui",
+  "version": "1.0.0",
+  "description": "An example of mountebank complexity",
+  "main": "server.js",
+  "scripts": {
+    "build": "npm run lint && webpack --config webpack/dev/webpack.config.js",
+    "build:watch": "webpack --config webpack/dev/webpack.config.js --watch",
+    "dev": "npm-run-all --parallel lint:watch build:watch start:dev",
+    "lint": "esw src -c .eslintrc",
+    "lint:watch": "npm run lint -- --watch",
+    "start": "node server.js",
+    "start:dev": "webpack-dev-server --config webpack/dev/webpack.config.js",
+    "start:stubs": "ENV=stubs webpack-dev-server --config webpack/dev/webpack.config.js",
+    "stubs": "mb --configfile stubs/imposters.ejs --allowInjection",
+    "test": "jest --silent",
+    "test:accessibility": "pa11y --standard WCAG2AA http://localhost:3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "www.localhost:3000"
+  },
+  "author": "unknown",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "babel-polyfill": "6.26.0",
+    "express": "4.16.2",
+    "history": "4.7.2",
+    "moment": "2.19.1",
+    "prop-types": "15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-moment": "0.6.8",
+    "react-redux": "5.0.6",
+    "react-router-dom": "4.2.2",
+    "react-router-redux": "5.0.0-alpha.8",
+    "redux": "3.7.2",
+    "redux-form": "7.1.2",
+    "redux-saga": "0.16.0",
+    "whatwg-fetch": "2.0.3"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.0.1",
+    "babel-loader": "7.1.2",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "css-loader": "0.28.7",
+    "enzyme": "3.1.0",
+    "enzyme-adapter-react-16": "1.0.2",
+    "eslint": "4.9.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "7.4.0",
+    "eslint-watch": "3.1.3",
+    "extract-text-webpack-plugin": "3.0.1",
+    "fetch-mock": "5.13.1",
+    "html-webpack-plugin": "2.30.1",
+    "jest": "21.2.1",
+    "jest-enzyme": "4.0.1",
+    "jest-webpack-resolver": "0.1.2",
+    "mountebank": "^1.13.0",
+    "node-sass": "4.5.3",
+    "npm-run-all": "4.1.1",
+    "pa11y": "4.13.1",
+    "react-test-renderer": "16.0.0",
+    "redux-saga-test-plan": "3.2.0",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.19.0",
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0",
+      "env"
+    ]
+  },
+  "jest": {
+    "verbose": true,
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "setupFiles": [
+      "<rootDir>/src/utils/tempPolyfills.js",
+      "<rootDir>/src/utils/testSetup.js"
+    ]
+  }
+}

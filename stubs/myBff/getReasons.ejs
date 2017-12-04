@@ -1,0 +1,8 @@
+{
+    "predicates": [{
+        "matches": { "path": "/calendar-bff/[^d+/]+/reasons" }
+    }],
+    "responses": [{
+        "inject" : "<%- stringify(filename, 'myBff/apptReasonsResponse.js') %>"
+    }]
+}

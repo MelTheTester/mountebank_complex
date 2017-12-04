@@ -1,0 +1,19 @@
+{
+    "imposters": [{
+        "port": 3001,
+        "useCores": true,
+        "protocol": "http",
+        "stubs": [
+          <% include myBff/getReasons.ejs %>,
+          <% include myBff/getTimes.ejs %>,
+          <% include myBff/scheduleAppt.ejs %>
+        ]
+    }, {
+        "port": 3002,
+        "useCores": true,
+        "protocol": "http",
+        "stubs": [
+          <% include structuredObjectService/getDynamicBusinessContent.ejs %>
+        ]
+    }]
+}

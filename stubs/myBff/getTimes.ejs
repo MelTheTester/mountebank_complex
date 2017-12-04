@@ -1,0 +1,8 @@
+{
+  "predicates": [{
+  "matches": { "path": "calendar/availability/[^s+/]+/[^d+/]+/[^d+/]+/[^d+/]+" }
+}],
+  "responses": [{
+  "inject" : "<%- stringify(filename, 'myBff/getTimesResponse.js') %>"
+}]
+}
